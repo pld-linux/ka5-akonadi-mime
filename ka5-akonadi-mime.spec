@@ -1,14 +1,14 @@
-%define		kdeappsver	17.08.2
+%define		kdeappsver	18.04.0
 %define		qtver		5.3.2
 %define		kaname		akonadi-mime
 Summary:	Akonadi Mime
 Name:		ka5-%{kaname}
-Version:	17.08.2
+Version:	18.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	191ff44da228c7f740f99fb204269f99
+# Source0-md5:	2712591f33bf8306c606ba8ffd341363
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -66,11 +66,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
+/etc/xdg/akonadi-mime.categories
 %attr(755,root,root) %{_bindir}/akonadi_benchmarker
 %attr(755,root,root) %ghost %{_libdir}/libKF5AkonadiMime.so.5
 %attr(755,root,root) %{_libdir}/libKF5AkonadiMime.so.*.*.*
 %{_datadir}/config.kcfg/specialmailcollections.kcfg
 %{_datadir}/mime/packages/x-vnd.kde.contactgroup.xml
+%{_libdir}/qt5/plugins/akonadi_serializer_mail.so
+%{_datadir}/akonadi/plugins
 
 %files devel
 %defattr(644,root,root,755)
