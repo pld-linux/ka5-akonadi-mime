@@ -1,14 +1,14 @@
-%define		kdeappsver	18.04.0
+%define		kdeappsver	18.04.3
 %define		qtver		5.3.2
 %define		kaname		akonadi-mime
 Summary:	Akonadi Mime
 Name:		ka5-%{kaname}
-Version:	18.04.0
+Version:	18.04.3
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	2712591f33bf8306c606ba8ffd341363
+# Source0-md5:	325f8af90cf669ed0bfb3307ea9903c2
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
