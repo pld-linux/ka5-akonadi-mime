@@ -1,20 +1,32 @@
-%define		kdeappsver	18.04.3
-%define		qtver		5.3.2
+%define		kdeappsver	18.12.0
+%define		qtver		5.9.0
 %define		kaname		akonadi-mime
 Summary:	Akonadi Mime
 Name:		ka5-%{kaname}
-Version:	18.04.3
+Version:	18.12.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	325f8af90cf669ed0bfb3307ea9903c2
+# Source0-md5:	faeb0dc5a3d1f3acdbeb5c40ba383140
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5Gui-devel >= 5.11.1
+BuildRequires:	Qt5Test-devel
+BuildRequires:	Qt5Widgets-devel
 BuildRequires:	cmake >= 2.8.12
-BuildRequires:	ka5-akonadi-devel >= %{kdeappsver}
-BuildRequires:	ka5-kmime-devel >= %{kdeappsver}
-BuildRequires:	kf5-extra-cmake-modules >= 1.4.0
+BuildRequires:	gettext-devel
+BuildRequires:	ka5-akonadi-devel >= 18.12.0
+BuildRequires:	ka5-kmime-devel >= 18.12.0
+BuildRequires:	kf5-extra-cmake-modules >= 5.51.0
+BuildRequires:	kf5-kconfig-devel >= 5.51.0
+BuildRequires:	kf5-kdbusaddons-devel >= 5.51.0
+BuildRequires:	kf5-ki18n-devel >= 5.51.0
+BuildRequires:	kf5-kio-devel >= 5.51.0
+BuildRequires:	kf5-kitemmodels-devel >= 5.10.0
+BuildRequires:	kf5-kxmlgui-devel >= 5.51.0
+BuildRequires:	libxslt-devel
+BuildRequires:	libxslt-progs
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
@@ -30,7 +42,7 @@ with emails through Akonadi easier.
 
 %package devel
 Summary:	Header files for %{kaname} development
-Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kpname}
+Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kaname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
