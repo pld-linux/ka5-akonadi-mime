@@ -1,15 +1,15 @@
-%define		kdeappsver	20.12.3
+%define		kdeappsver	21.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		akonadi-mime
 Summary:	Akonadi Mime
 Name:		ka5-%{kaname}
-Version:	20.12.3
+Version:	21.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	e363cf10028e01d9a56701716282972e
+# Source0-md5:	f9e9496844165b57ea7797b4f07d07bb
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1
@@ -81,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/akonadi_benchmarker
-%attr(755,root,root) %ghost %{_libdir}/libKF5AkonadiMime.so.5
+%ghost %{_libdir}/libKF5AkonadiMime.so.5
 %attr(755,root,root) %{_libdir}/libKF5AkonadiMime.so.*.*.*
 %{_datadir}/config.kcfg/specialmailcollections.kcfg
 %{_datadir}/mime/packages/x-vnd.kde.contactgroup.xml
@@ -95,5 +95,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/KF5/akonadi-mime_version.h
 %{_includedir}/KF5/akonadi/kmime
 %{_libdir}/cmake/KF5AkonadiMime
-%attr(755,root,root) %{_libdir}/libKF5AkonadiMime.so
+%{_libdir}/libKF5AkonadiMime.so
 %{_libdir}/qt5/mkspecs/modules/qt_AkonadiMime.pri
