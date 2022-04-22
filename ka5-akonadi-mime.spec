@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	21.12.3
+%define		kdeappsver	22.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		akonadi-mime
 Summary:	Akonadi Mime
 Name:		ka5-%{kaname}
-Version:	21.12.3
-Release:	2
+Version:	22.04.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	851185c681d52b0bc53616a6956f8135
+# Source0-md5:	8c0f2c858199e7ee4642b98e79ef7f2c
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1
@@ -89,7 +89,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/akonadi_benchmarker
 %ghost %{_libdir}/libKF5AkonadiMime.so.5
 %attr(755,root,root) %{_libdir}/libKF5AkonadiMime.so.*.*.*
 %{_datadir}/config.kcfg/specialmailcollections.kcfg
@@ -100,9 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KF5/Akonadi/KMime
-%{_includedir}/KF5/akonadi-mime_version.h
-%{_includedir}/KF5/akonadi/kmime
+%{_includedir}/KF5/AkonadiMime
 %{_libdir}/cmake/KF5AkonadiMime
 %{_libdir}/libKF5AkonadiMime.so
 %{_libdir}/qt5/mkspecs/modules/qt_AkonadiMime.pri
