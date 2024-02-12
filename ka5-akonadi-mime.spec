@@ -1,38 +1,38 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	23.08.4
+%define		kdeappsver	24.01.95
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		akonadi-mime
 Summary:	Akonadi Mime
 Name:		ka5-%{kaname}
-Version:	23.08.4
-Release:	1
+Version:	24.01.95
+Release:	0.1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	08e9d4ad9cd6dcccc8f2d4506335032d
+Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	d6b948e36cd354858f558dbb60427f0d
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	Qt5Gui-devel >= 5.11.1
-BuildRequires:	Qt5Test-devel
-BuildRequires:	Qt5Widgets-devel
+BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6Gui-devel >= 5.11.1
+BuildRequires:	Qt6Test-devel
+BuildRequires:	Qt6Widgets-devel
 BuildRequires:	cmake >= 3.20
 BuildRequires:	gettext-devel
 BuildRequires:	ka5-akonadi-devel >= %{kdeappsver}
 BuildRequires:	ka5-kmime-devel >= %{kdeappsver}
-BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
-BuildRequires:	kf5-kconfig-devel >= %{kframever}
-BuildRequires:	kf5-kdbusaddons-devel >= %{kframever}
-BuildRequires:	kf5-ki18n-devel >= %{kframever}
-BuildRequires:	kf5-kio-devel >= %{kframever}
-BuildRequires:	kf5-kitemmodels-devel >= %{kframever}
-BuildRequires:	kf5-kxmlgui-devel >= %{kframever}
+BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf6-kconfig-devel >= %{kframever}
+BuildRequires:	kf6-kdbusaddons-devel >= %{kframever}
+BuildRequires:	kf6-ki18n-devel >= %{kframever}
+BuildRequires:	kf6-kio-devel >= %{kframever}
+BuildRequires:	kf6-kitemmodels-devel >= %{kframever}
+BuildRequires:	kf6-kxmlgui-devel >= %{kframever}
 BuildRequires:	libxslt-devel
 BuildRequires:	libxslt-progs
 BuildRequires:	ninja
-BuildRequires:	qt5-build >= %{qtver}
+BuildRequires:	qt6-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -90,18 +90,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libKPim6AkonadiMime.so.*.*
+%ghost %{_libdir}/libKPim6AkonadiMime.so.6
+%attr(755,root,root) %{_libdir}/qt6/plugins/akonadi_serializer_mail.so
+%{_datadir}/akonadi/plugins/serializer/akonadi_serializer_mail.desktop
 %{_datadir}/config.kcfg/specialmailcollections.kcfg
 %{_datadir}/mime/packages/x-vnd.kde.contactgroup.xml
-%{_libdir}/qt5/plugins/akonadi_serializer_mail.so
-%{_datadir}/akonadi/plugins
-%{_datadir}/qlogging-categories5/akonadi-mime.categories
-%ghost %{_libdir}/libKPim5AkonadiMime.so.5
-%attr(755,root,root) %{_libdir}/libKPim5AkonadiMime.so.*.*.*
+%{_datadir}/qlogging-categories6/akonadi-mime.categories
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/qt5/mkspecs/modules/qt_AkonadiMime.pri
-%{_includedir}/KPim5/AkonadiMime
-%{_libdir}/cmake/KF5AkonadiMime
-%{_libdir}/cmake/KPim5AkonadiMime
-%{_libdir}/libKPim5AkonadiMime.so
+%{_includedir}/KPim6/AkonadiMime
+%{_libdir}/cmake/KPim6AkonadiMime
+%{_libdir}/libKPim6AkonadiMime.so
